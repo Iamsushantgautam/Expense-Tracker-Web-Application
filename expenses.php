@@ -140,25 +140,9 @@ $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
      </section>
 </div>
 
+
 <script>
-// Theme toggle logic
-const themeToggle = document.getElementById('themeToggle');
-function setTheme(dark) {
-    if (dark) {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light');
-    }
-}
-themeToggle.addEventListener('click', function() {
-    setTheme(!document.body.classList.contains('dark-mode'));
-});
-// On load, set theme from localStorage
-if (localStorage.getItem('theme') === 'dark') {
-    setTheme(true);
-}
+// Sidebar drawer logic (shared)
 const sidebar = document.getElementById("sidebar");
 const menuButton = document.getElementById("menuButton");
 const drawerOverlay = document.getElementById("drawerOverlay");
@@ -173,13 +157,15 @@ function closeDrawer(){
     drawerOverlay.classList.remove("visible");
 }
 
-menuButton.addEventListener("click", function(){
-    if(sidebar.classList.contains("open")){
-        closeDrawer();
-    } else {
-        openDrawer();
-    }
-});
+if(menuButton){
+    menuButton.addEventListener("click", function(){
+        if(sidebar.classList.contains("open")){
+            closeDrawer();
+        } else {
+            openDrawer();
+        }
+    });
+}
 
 drawerOverlay.addEventListener("click", closeDrawer);
 

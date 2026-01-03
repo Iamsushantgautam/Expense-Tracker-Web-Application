@@ -70,13 +70,13 @@ body.dark .table th,
 body.dark-mode .table th {
     background: #23272f;
     color: #f3f4f6;
-    border-bottom: 1px solid #374151;
+    border-bottom: none;
 }
 body.dark .table td,
 body.dark-mode .table td {
     background: #23272f;
     color: #f3f4f6;
-    border-bottom: 1px solid #23272f;
+    border-bottom: none;
 }
 
 /* Inputs and selects */

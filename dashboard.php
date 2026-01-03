@@ -6,15 +6,17 @@ requireLogin();
 $userId = $_SESSION['user_id'];
 
 // Fetch user
-$stmt = $pdo->prepare("SELECT id, name, email, profile_pic, monthly_budget FROM users WHERE id = ?");
+
+// Fetch user including budget_warn_limit
+$stmt = $pdo->prepare("SELECT id, name, email, profile_pic, monthly_budget, budget_warn_limit FROM users WHERE id = ?");
 $stmt->execute([$userId]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Monthly budget from database or default
 $monthly_budget = isset($user['monthly_budget']) ? (float)$user['monthly_budget'] : 0.00;
 
-// Set budget warning limit (default 90%)
-$budget_warn_limit = isset($_SESSION['budget_warn_limit']) ? (int)$_SESSION['budget_warn_limit'] : 90;
+// Set budget warning limit from DB or default 90%
+$budget_warn_limit = isset($user['budget_warn_limit']) ? (int)$user['budget_warn_limit'] : 90;
 if($budget_warn_limit < 1 || $budget_warn_limit > 100) $budget_warn_limit = 90;
 
 // Update budget if form submitted
@@ -27,7 +29,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         exit;
     }
     if(isset($_POST['budget_warn_limit'])){
-        $_SESSION['budget_warn_limit'] = max(1, min(100, (int)$_POST['budget_warn_limit']));
+        $budget_warn_limit = max(1, min(100, (int)$_POST['budget_warn_limit']));
+        // Update in database
+        $stmt = $pdo->prepare("UPDATE users SET budget_warn_limit = ? WHERE id = ?");
+        $stmt->execute([$budget_warn_limit, $userId]);
         header('Location: dashboard.php');
         exit;
     }

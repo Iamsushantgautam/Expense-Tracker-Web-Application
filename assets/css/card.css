@@ -70,23 +70,16 @@
 /* Table */
 .table {
     width:100%;
-    border-collapse:collapse;
-    min-width:600px;
+        min-width:600px;
 }
 .table th,
 .table td {
     padding:12px;
-    border-bottom:1px solid #e5e7eb;
     text-align:left;
     font-size:14px;
 }
-.table th {
-    background:#f9fafb;
-    font-weight:600;
-}
-.table tr:hover {
-    background:#f1f5f9;
-}
+
+
 
 /* Action link */
 .table a {
@@ -190,7 +183,6 @@
         display:block;
         padding:10px;
         margin-bottom:10px;
-        background:#f9fafb;
         border-radius:10px;
     }
     .table td{

@@ -19,18 +19,21 @@ if (!isset($user)) {
 <div class="drawer-overlay" id="drawerOverlay"></div>
 <div class="sidebar" id="sidebar">
     <h2>Expense Tracker</h2>
-    <a href="dashboard.php">📊 Dashboard</a>
-    <a href="add_expense.php">➕ Add Expense</a>
-    <a href="expenses.php">💰 Expenses</a>
-    <a href="profile.php">👤 Profile</a>
-    <a href="help.php">🆘 Help & Support</a>
-    <a href="logout.php">🚪 Logout</a>
+    <div class="nav-links">
+        <a href="dashboard.php">📊 Dashboard</a>
+        <a href="add_expense.php">➕ Add Expense</a>
+        <a href="expenses.php">💰 Expenses</a>
+        <a href="profile.php">👤 Profile</a>
+        <a href="help.php">🆘 Help & Support</a>
+        <a href="logout.php">🚪 Logout</a>
+    </div>
     <div class="profile-box">
         <img src="<?= $user['profile_pic'] ? 'uploads/profile_pics/' . htmlspecialchars($user['profile_pic']) : 'assets/img/default.png' ?>" alt="User">
         <p><?= htmlspecialchars($user['name']) ?></p>
         <div id="themeToggleBox" style="margin: 14px 0 0 0; cursor:pointer; font-size:1.3em; display:flex; align-items:center; gap:8px; justify-content:center;">
-            <span style="font-size:1.1em;"><i class="fa-solid fa-moon"></i></span>
-            <span style="font-size:14px;">Theme</span>
+          <span style="font-size:14px;">Theme</span>   
+        <span style="font-size:1.1em;"><i class="fa-solid fa-moon"></i></span>
+          
         </div>
     </div>
 </div>

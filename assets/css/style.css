@@ -40,21 +40,11 @@ body.dark input[name="budget_warn_limit"]::placeholder {
 .action-icon.edit {
 	color: var(--primary);
 }
-.action-icon.edit:hover, .action-icon.edit:focus {
-	color: #fff;
-	background: var(--primary);
-	box-shadow: 0 2px 8px rgba(74,144,226,0.12);
-	transform: scale(1.12) rotate(-8deg);
-}
+
 .action-icon.delete {
 	color: var(--danger);
 }
-.action-icon.delete:hover, .action-icon.delete:focus {
-	color: #fff;
-	background: var(--danger);
-	box-shadow: 0 2px 8px rgba(239,68,68,0.12);
-	transform: scale(1.12) rotate(8deg);
-}
+
 /* Theme variables */
 /*
  * Font Awesome 6 CDN (add to your HTML <head> if not already present):
