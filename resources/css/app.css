@@ -1,0 +1,223 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: var(--color-primary);
+    --color-primary-hover: var(--color-primary-hover);
+    --color-primary-light: var(--color-primary-light);
+    --color-primary-border: var(--color-primary-border);
+}
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@layer base {
+    :root {
+        /* Theme Preset Colors (Default: Royal Blue) */
+        --color-primary: #2563eb;
+        --color-primary-hover: #1d4ed8;
+        --color-primary-light: #eff6ff;
+        --color-primary-border: #bfdbfe;
+
+        /* Standard Radius Default */
+        --card-radius: 0.75rem;
+        --btn-radius: 0.5rem;
+    }
+
+    .dark {
+        --color-primary-light: rgba(37, 99, 235, 0.15);
+        --color-primary-border: rgba(37, 99, 235, 0.3);
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+/* Color Templates Preset Classes */
+[data-theme="blue"] {
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-primary-light: #eff6ff;
+    --color-primary-border: #bfdbfe;
+}
+.dark[data-theme="blue"] {
+    --color-primary-light: rgba(37, 99, 235, 0.15);
+    --color-primary-border: rgba(37, 99, 235, 0.3);
+}
+
+[data-theme="emerald"] {
+    --color-primary: #059669;
+    --color-primary-hover: #047857;
+    --color-primary-light: #ecfdf5;
+    --color-primary-border: #a7f3d0;
+}
+.dark[data-theme="emerald"] {
+    --color-primary-light: rgba(5, 150, 105, 0.15);
+    --color-primary-border: rgba(5, 150, 105, 0.3);
+}
+
+[data-theme="indigo"] {
+    --color-primary: #4f46e5;
+    --color-primary-hover: #4338ca;
+    --color-primary-light: #eef2ff;
+    --color-primary-border: #c7d2fe;
+}
+.dark[data-theme="indigo"] {
+    --color-primary-light: rgba(79, 70, 229, 0.15);
+    --color-primary-border: rgba(79, 70, 229, 0.3);
+}
+
+[data-theme="violet"] {
+    --color-primary: #7c3aed;
+    --color-primary-hover: #6d28d9;
+    --color-primary-light: #f5f3ff;
+    --color-primary-border: #ddd6fe;
+}
+.dark[data-theme="violet"] {
+    --color-primary-light: rgba(124, 58, 237, 0.15);
+    --color-primary-border: rgba(124, 58, 237, 0.3);
+}
+
+[data-theme="rose"] {
+    --color-primary: #e11d48;
+    --color-primary-hover: #be123c;
+    --color-primary-light: #fff1f2;
+    --color-primary-border: #fecdd3;
+}
+.dark[data-theme="rose"] {
+    --color-primary-light: rgba(225, 29, 72, 0.15);
+    --color-primary-border: rgba(225, 29, 72, 0.3);
+}
+
+[data-theme="teal"] {
+    --color-primary: #0d9488;
+    --color-primary-hover: #0f766e;
+    --color-primary-light: #f0fdfa;
+    --color-primary-border: #99f6e4;
+}
+.dark[data-theme="teal"] {
+    --color-primary-light: rgba(13, 148, 136, 0.15);
+    --color-primary-border: rgba(13, 148, 136, 0.3);
+}
+
+[data-theme="amber"] {
+    --color-primary: #d97706;
+    --color-primary-hover: #b45309;
+    --color-primary-light: #fffbeb;
+    --color-primary-border: #fde68a;
+}
+.dark[data-theme="amber"] {
+    --color-primary-light: rgba(217, 119, 6, 0.15);
+    --color-primary-border: rgba(217, 119, 6, 0.3);
+}
+
+[data-theme="slate"] {
+    --color-primary: #475569;
+    --color-primary-hover: #334155;
+    --color-primary-light: #f8fafc;
+    --color-primary-border: #cbd5e1;
+}
+.dark[data-theme="slate"] {
+    --color-primary-light: rgba(71, 85, 105, 0.15);
+    --color-primary-border: rgba(71, 85, 105, 0.3);
+}
+
+/* Custom Utility Classes for Dynamic Colors & Flat Styling */
+.bg-primary {
+    background-color: var(--color-primary);
+}
+.bg-primary-hover:hover {
+    background-color: var(--color-primary-hover);
+}
+.bg-primary-light {
+    background-color: var(--color-primary-light);
+}
+.text-primary {
+    color: var(--color-primary);
+}
+.border-primary {
+    border-color: var(--color-primary);
+}
+.border-primary-light {
+    border-color: var(--color-primary-border);
+}
+.ring-primary:focus {
+    --tw-ring-color: var(--color-primary);
+}
+
+/* Card Radius Custom Property */
+.card-rounded {
+    border-radius: var(--card-radius);
+}
+.btn-rounded {
+    border-radius: var(--btn-radius);
+}
+
+/* Strict Flat Style: Remove heavy shadows and box borders */
+.flat-card {
+    border-radius: var(--card-radius);
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: none !important;
+}
+.dark .flat-card {
+    background-color: #0f172a;
+    border-color: #1e293b;
+}
+
+.flat-panel {
+    background-color: transparent;
+    border-bottom: 1px solid #e2e8f0;
+}
+.dark .flat-panel {
+    border-color: #1e293b;
+}
+
+/* Clean Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+    background: #334155;
+}
+
+/* Custom Effective Select Dropdown Styling */
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem !important;
+}
+
+.dark select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+}
+
+select option {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.dark select option {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#2563eb" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+
+    <!-- Subtle Accent Glow Gradient -->
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Chart Line Gradient -->
+    <linearGradient id="chartGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Shadow filter -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.25"/>
+    </filter>
+    
+    <filter id="iconGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Base Squircle Background -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bgGrad)" filter="url(#dropShadow)" />
+
+  <!-- Corner Highlight overlay -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#glowGrad)" />
+
+  <!-- Inner subtle border glow -->
+  <rect x="34" y="34" width="444" height="444" rx="110" fill="none" stroke="#ffffff" stroke-opacity="0.25" stroke-width="4" />
+
+  <!-- Upward Trend Chart Arrow in background -->
+  <path d="M 120 340 L 210 260 L 290 310 L 392 180" fill="none" stroke="url(#chartGrad)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" filter="url(#iconGlow)" />
+  <polyline points="340,180 392,180 392,232" fill="none" stroke="url(#chartGrad)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" filter="url(#iconGlow)" />
+
+  <!-- Indian Rupee Symbol (₹) Bold & Clean -->
+  <!-- Top horizontal bar 1 -->
+  <path d="M 160 148 L 330 148" stroke="#ffffff" stroke-width="34" stroke-linecap="round" filter="url(#iconGlow)" />
+  <!-- Top horizontal bar 2 -->
+  <path d="M 160 204 L 310 204" stroke="#ffffff" stroke-width="34" stroke-linecap="round" filter="url(#iconGlow)" />
+  <!-- Loop and diagonal leg -->
+  <path d="M 210 148 L 210 220 C 290 220 300 300 220 320 L 335 400" fill="none" stroke="#ffffff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round" filter="url(#iconGlow)" />
+</svg>
