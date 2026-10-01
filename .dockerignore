@@ -16,7 +16,3 @@ database/*.sqlite
 database/*.sqlite-journal
 phpunit.xml
 tests
-README.md
-Dockerfile
-docker
-render.yaml
