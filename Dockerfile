@@ -17,7 +17,8 @@ COPY bootstrap ./bootstrap
 COPY config ./config
 COPY database ./database
 COPY routes ./routes
-RUN composer dump-autoload --optimize --no-dev --classmap-authoritative
+COPY artisan ./artisan
+RUN composer dump-autoload --optimize --no-dev --classmap-authoritative --no-scripts
 
 # Stage 3: Production Runtime Environment
 FROM php:8.2-fpm-alpine
